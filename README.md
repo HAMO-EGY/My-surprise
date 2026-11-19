@@ -95,7 +95,7 @@ h1{animation:glow 3s infinite}
 
 <section class="section">
  <div class="small">WELCOME</div>
- <h2>أهلاً بيكي 🖤</h2>
+ <h2>أهلاً بيك 🖤</h2>
  <p>في حاجات بسيطة ممكن تكون سبب في ابتسامة كبيرة...</p>
 </section>
 
