@@ -345,6 +345,11 @@ music.src = settings.music;
 function startExperience() {
   document.getElementById("intro").classList.add("hidden");
   document.getElementById("experience").classList.remove("hidden");
+
+  music.play().catch(() => {
+    console.log("Music needs user interaction");
+  });
+
   window.scrollTo(0, 0);
 }
 
