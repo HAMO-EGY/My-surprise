@@ -6,7 +6,10 @@ const settings = {
   secretTitle: "A SECRET FOR YOU",
   secretMessage: "هنا هتكون المفاجأة السرية اللي محدش يعرفها...",
   date: "2027-01-01",
+photos: [
+  "photo1.jpg",
+  "photo2.jpg",
+  "photo3.jpg",
+  "photo4.jpg"
+],
 
-  photos: ["", "", "", ""],
-  music: "music.mp3"
-};
