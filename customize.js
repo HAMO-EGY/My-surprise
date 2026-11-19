@@ -1,8 +1,8 @@
 const settings = {
-  name: "اسم الشخص هنا",
-  title: "BLACK LUXURY",
+  name: "MOHAMED HASSAN",
+  title: "HAMO",
   welcome: "في حكاية جميلة اتعملت مخصوص ليك 🖤",
-  letter: "اكتب رسالتك الخاصة هنا...",
+  letter: "حبيبي ي قلبااااي",
   secretTitle: "A SECRET FOR YOU",
   secretMessage: "هنا هتكون المفاجأة السرية اللي محدش يعرفها...",
   date: "2027-01-01",
