@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BLACK LUXURY</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
 * {
   margin: 0;
@@ -13,87 +16,144 @@
   box-sizing: border-box;
 }
 
+:root {
+  --gold: #d6b56d;
+  --dark: #080808;
+  --soft: #c9c2b5;
+}
+
+html { scroll-behavior: smooth; }
+
 body {
-  background: #080808;
+  background: var(--dark);
   color: #f5f0e6;
-  font-family: Arial, sans-serif;
+  font-family: 'Cairo', sans-serif;
   text-align: center;
   overflow-x: hidden;
 }
 
-.gold {
-  color: #d6b56d;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 15% 20%, #30271955, transparent 35%),
+    radial-gradient(circle at 85% 80%, #30271944, transparent 35%);
+}
+
+.gold { color: var(--gold); }
+
+.english {
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 4px;
 }
 
 section {
-  padding: 80px 20px;
-  min-height: 70vh;
+  min-height: 85vh;
+  padding: 100px 22px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-#intro {
-  min-height: 100vh;
-  background: radial-gradient(circle, #242016, #080808 65%);
+  position: relative;
 }
 
 h1 {
-  font-size: clamp(32px, 8vw, 65px);
-  letter-spacing: 3px;
-  margin: 20px;
+  font-size: clamp(38px, 9vw, 76px);
+  margin: 20px 0;
 }
 
 h2 {
-  color: #d6b56d;
-  margin-bottom: 25px;
+  color: var(--gold);
   font-size: 30px;
+  margin-bottom: 25px;
 }
 
 p {
-  color: #c9c2b5;
-  line-height: 2;
+  color: var(--soft);
+  line-height: 2.2;
   max-width: 650px;
-  font-size: 18px;
-}
-
-button {
-  background: #d6b56d;
-  color: #111;
-  border: none;
-  padding: 15px 35px;
-  margin-top: 30px;
-  cursor: pointer;
-  font-weight: bold;
-  letter-spacing: 2px;
-  border-radius: 3px;
-}
-
-button:hover {
-  background: #f2d99e;
-}
-
-.hidden {
-  display: none !important;
+  font-size: 17px;
 }
 
 .line {
-  width: 70px;
-  height: 2px;
-  background: #d6b56d;
+  width: 75px;
+  height: 1px;
+  background: var(--gold);
   margin: 25px auto;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(130px, 230px));
+button {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 14px 32px;
+  margin-top: 25px;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+button:hover {
+  background: var(--gold);
+  color: #080808;
+  box-shadow: 0 0 25px #d6b56d55;
+}
+
+.hidden { display: none !important; }
+
+#intro {
+  min-height: 100vh;
+  background: radial-gradient(circle, #292216, #080808 65%);
+}
+
+.intro-small {
+  letter-spacing: 5px;
+  font-size: 13px;
+}
+
+.fade {
+  animation: appear 1.5s ease both;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #080808eF;
+  border-bottom: 1px solid #d6b56d33;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
   gap: 18px;
-  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.gallery {
+  width: 100%;
+  max-width: 650px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 35px;
 }
 
 .photo {
-  height: 220px;
+  height: 230px;
   border: 1px solid #8c7040;
   background: linear-gradient(145deg, #211d15, #0d0d0d);
   display: flex;
@@ -110,47 +170,64 @@ button:hover {
 }
 
 .letter {
-  border: 1px solid #705a32;
-  padding: 35px 25px;
+  background: linear-gradient(145deg, #17140f, #0c0c0c);
+  border: 1px solid #8c7040;
+  padding: 40px 25px;
   max-width: 650px;
-  background: #101010;
-  margin-top: 20px;
+  width: 100%;
+  margin-top: 25px;
 }
 
 #timer {
-  font-size: 30px;
-  color: #d6b56d;
-  margin-top: 25px;
   direction: ltr;
+  color: var(--gold);
+  font-size: clamp(20px, 5vw, 30px);
+  margin-top: 30px;
+  line-height: 2;
+}
+
+.secret-box {
+  max-width: 600px;
+  width: 100%;
+  padding: 35px 20px;
+  border: 1px solid #8c7040;
+  background: #12100c;
+  margin-top: 25px;
+  animation: appear 1s ease;
+}
+
+.secret-symbol {
+  font-size: 55px;
+  color: var(--gold);
+  margin-bottom: 15px;
 }
 
 footer {
-  padding: 30px;
-  color: #756b58;
-  border-top: 1px solid #292319;
+  padding: 35px 15px;
+  border-top: 1px solid #d6b56d33;
+  color: #8b7957;
 }
 
 .star {
   position: fixed;
-  color: #d6b56d;
-  animation: fall linear infinite;
+  top: -20px;
+  color: var(--gold);
   pointer-events: none;
-  z-index: 5;
+  z-index: 30;
+  animation: fall linear forwards;
 }
 
 @keyframes fall {
-  from { transform: translateY(-20px); opacity: 0; }
-  20% { opacity: 1; }
-  to { transform: translateY(100vh); opacity: 0; }
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
-@media (max-width: 450px) {
-  .gallery {
-    grid-template-columns: repeat(2, minmax(110px, 1fr));
-  }
-  .photo {
-    height: 170px;
-  }
+@media(max-width: 450px) {
+  .photo { height: 170px; }
+  nav { gap: 12px; }
+  nav a { font-size: 11px; }
 }
 </style>
 </head>
@@ -158,50 +235,78 @@ footer {
 <body>
 
 <section id="intro">
-  <p class="gold">A MOMENT MADE FOR YOU</p>
-  <h1 id="mainTitle">BLACK LUXURY</h1>
+  <p class="gold intro-small fade">A MOMENT MADE FOR YOU</p>
+  <h1 class="english gold fade" id="mainTitle">BLACK LUXURY</h1>
   <div class="line"></div>
+  <p class="fade">Some moments are simply unforgettable.</p>
   <button onclick="startExperience()">ENTER THE EXPERIENCE</button>
 </section>
 
 <main id="experience" class="hidden">
 
-  <section>
-    <p class="gold">A SPECIAL MESSAGE FOR</p>
-    <h1 id="personName"></h1>
-    <div class="line"></div>
-    <p id="welcomeText"></p>
-  </section>
+<nav>
+  <a href="#welcome">HOME</a>
+  <a href="#memories">MEMORIES</a>
+  <a href="#letter">LETTER</a>
+  <a href="#secret">SECRET</a>
+</nav>
 
-  <section>
-    <h2>OUR MOMENTS</h2>
-    <p>Some memories deserve to stay forever.</p>
-    <div class="gallery" id="gallery"></div>
-  </section>
+<section id="welcome">
+  <p class="gold english">A SPECIAL WORLD FOR</p>
+  <h1 id="personName"></h1>
+  <div class="line"></div>
+  <p id="welcomeText"></p>
+</section>
 
-  <section>
-    <h2>A LETTER FOR YOU</h2>
-    <div class="letter">
-      <p id="letterText"></p>
-    </div>
-  </section>
+<section id="memories">
+  <p class="gold english">CHAPTER ONE</p>
+  <h2>OUR MEMORIES</h2>
+  <p>Every picture has a story. Every story has a memory.</p>
+  <div class="gallery" id="gallery"></div>
+</section>
 
-  <section>
-    <h2>EVERY MOMENT COUNTS</h2>
-    <p>Counting from the special date...</p>
-    <div id="timer">Loading...</div>
-  </section>
+<section id="letter">
+  <p class="gold english">CHAPTER TWO</p>
+  <h2>A LETTER FOR YOU</h2>
+  <div class="letter">
+    <p id="letterText"></p>
+  </div>
+</section>
 
-  <section>
-    <h2>ONE LAST THING</h2>
-    <p class="gold">This experience was made especially for you.</p>
-    <button onclick="toggleMusic()">PLAY MUSIC ♫</button>
-  </section>
+<section>
+  <p class="gold english">TIMELESS MOMENTS</p>
+  <h2>OUR SPECIAL TIME</h2>
+  <p>Every second tells a story.</p>
+  <div id="timer">Loading...</div>
+</section>
+
+<section id="secret">
+  <p class="gold english">THE FINAL CHAPTER</p>
+  <h2>THE SECRET SURPRISE</h2>
+  <p>There's something waiting just for you...</p>
+
+  <button id="secretButton" onclick="revealSecret()">
+    UNLOCK THE SECRET
+  </button>
+
+  <div id="secretContent" class="secret-box hidden">
+    <div class="secret-symbol">✦</div>
+    <h2 id="secretTitle"></h2>
+    <p id="secretMessage"></p>
+  </div>
+</section>
+
+<section>
+  <p class="gold english">ONE LAST THING</p>
+  <h2>MADE WITH LOVE</h2>
+  <p>This little world was created to make one moment unforgettable.</p>
+  <button onclick="toggleMusic()">♫ PLAY / PAUSE MUSIC</button>
+</section>
 
 </main>
 
-<footer>
-  MADE WITH LOVE 🖤
+<footer class="english">
+  BLACK LUXURY — MADE WITH LOVE
 </footer>
 
 <audio id="music" loop></audio>
@@ -213,6 +318,8 @@ document.getElementById("mainTitle").textContent = settings.title;
 document.getElementById("personName").textContent = settings.name;
 document.getElementById("welcomeText").textContent = settings.welcome;
 document.getElementById("letterText").textContent = settings.letter;
+document.getElementById("secretTitle").textContent = settings.secretTitle;
+document.getElementById("secretMessage").textContent = settings.secretMessage;
 
 const gallery = document.getElementById("gallery");
 
@@ -241,9 +348,16 @@ function startExperience() {
   window.scrollTo(0, 0);
 }
 
+function revealSecret() {
+  document.getElementById("secretContent").classList.remove("hidden");
+  document.getElementById("secretButton").classList.add("hidden");
+}
+
 function toggleMusic() {
   if (music.paused) {
-    music.play();
+    music.play().catch(() => {
+      alert("Add your music file first!");
+    });
   } else {
     music.pause();
   }
@@ -253,14 +367,15 @@ function updateTimer() {
   const target = new Date(settings.date);
   const now = new Date();
   const difference = now - target;
+  const timer = document.getElementById("timer");
 
   if (isNaN(target.getTime())) {
-    document.getElementById("timer").textContent = "Set a valid date";
+    timer.textContent = "Set a valid date";
     return;
   }
 
   if (difference < 0) {
-    document.getElementById("timer").textContent = "The date is coming...";
+    timer.textContent = "The special day is coming...";
     return;
   }
 
@@ -269,8 +384,8 @@ function updateTimer() {
   const minutes = Math.floor(difference / 60000) % 60;
   const seconds = Math.floor(difference / 1000) % 60;
 
-  document.getElementById("timer").textContent =
-    `${days} Days | ${hours} Hours | ${minutes} Minutes | ${seconds} Seconds`;
+  timer.textContent =
+    `${days} DAYS | ${hours} HOURS | ${minutes} MINUTES | ${seconds} SECONDS`;
 }
 
 setInterval(updateTimer, 1000);
@@ -281,13 +396,16 @@ function createStar() {
   star.className = "star";
   star.textContent = "✦";
   star.style.left = Math.random() * 100 + "vw";
-  star.style.animationDuration = (3 + Math.random() * 5) + "s";
+  star.style.animationDuration = (4 + Math.random() * 5) + "s";
+  star.style.opacity = Math.random();
+  star.style.fontSize = (8 + Math.random() * 12) + "px";
+
   document.body.appendChild(star);
 
-  setTimeout(() => star.remove(), 8000);
+  setTimeout(() => star.remove(), 9000);
 }
 
-setInterval(createStar, 500);
+setInterval(createStar, 650);
 </script>
 
 </body>
